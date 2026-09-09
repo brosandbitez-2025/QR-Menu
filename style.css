@@ -311,12 +311,17 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 2px 20px 10px;
+  gap: 8px;
+  min-width: 0;
 }
 
 .category-title-wrap {
   display: flex;
   align-items: baseline;
   gap: 8px;
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
 }
 
 .active-category-name {
@@ -324,6 +329,10 @@ body {
   font-size: 18px;
   font-weight: 800;
   color: #261B16;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
 }
 
 .item-count-badge {
@@ -341,6 +350,7 @@ body {
   padding: 3px;
   border-radius: 16px;
   gap: 3px;
+  flex-shrink: 0;
 }
 
 .diet-btn {
