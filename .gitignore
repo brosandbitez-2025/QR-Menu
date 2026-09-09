@@ -1,0 +1,23 @@
+# Node modules (not needed - no dependencies)
+node_modules/
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor folders
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment variables (if added later)
+.env
+.env.local
+
+# Admin config contains the PIN — keep local only, Railway uses its own copy
+# (Comment this out if you want the default PIN on Railway too)
+# admin_config.json

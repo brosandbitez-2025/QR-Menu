@@ -1,0 +1,231 @@
+{
+  "brand": {
+    "title": "Bros & Bitez - Digital Menu",
+    "logoUrl": "Assets/Bros_and_bites_logo_final-02_1788940463796.jpg",
+    "heroBgUrl": "Assets/WhatsApp_Image_2025-12-21_at_10_22_35_PM_1788940025211_1788943420153.jpeg",
+    "dineInHours": "11:00 AM – 10:30 PM",
+    "footerText": "© 2026 Bros & Bitez • Digital QR Menu"
+  },
+  "contacts": {
+    "mapsUrl": "https://maps.app.goo.gl/ZvY9F73VXCn3dcS29",
+    "phone": "+918973433223",
+    "whatsapp": "+916381397054",
+    "fbUrl": "https://www.facebook.com/profile.php?id=61573512401846",
+    "fbLabel": "Like us on Facebook",
+    "igUrl": "https://www.instagram.com/bros_and_bitez?stkn=cjk0ZnZ2OHJzamFv",
+    "igLabel": "Follow us on Instagram",
+    "googleReviewUrl": "https://g.page/r/CYEAikToMqyiEAE/review",
+    "wifiSsid": "Bros_And_Bitez_Guest",
+    "wifiPass": "tastybitez2026"
+  },
+  "categories": [
+    {
+      "id": "french-fries-9082",
+      "name": "French Fries",
+      "icon": "🍟",
+      "items": []
+    },
+    {
+      "id": "coffee",
+      "name": "Coffee",
+      "icon": "☕",
+      "items": [
+        {
+          "id": "c1",
+          "name": "Espresso Coffee",
+          "price": 99,
+          "diet": "veg",
+          "desc": "Rich, intense full-bodied double shot extracted from freshly ground dark roast arabica beans.",
+          "image": "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "c2",
+          "name": "Cappuccino",
+          "price": 149,
+          "diet": "veg",
+          "desc": "Balanced espresso poured over velvety steamed whole milk topped with thick creamy microfoam and cocoa dust.",
+          "image": "https://images.unsplash.com/photo-1534778101976-62847782c213?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "c3",
+          "name": "Caramel Macchiato",
+          "price": 189,
+          "diet": "veg",
+          "desc": "Freshly steamed milk with vanilla-flavored syrup marked with espresso and topped with caramel drizzle.",
+          "image": "https://images.unsplash.com/photo-1485808191679-5f86510681a2?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "c4",
+          "name": "Hazelnut Cafe Latte",
+          "price": 179,
+          "diet": "veg",
+          "desc": "Smooth espresso blended with roasted hazelnut syrup and silky textured milk with artful pour.",
+          "image": "https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "c5",
+          "name": "Cold Brew Sweet Cream",
+          "price": 199,
+          "diet": "veg",
+          "desc": "Slow-steeped for 18 hours, served over ice and layered with velvety vanilla sweet cream foam.",
+          "image": "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?q=80&w=400&auto=format&fit=crop"
+        }
+      ]
+    },
+    {
+      "id": "quick-bites",
+      "name": "Quick Bites",
+      "icon": "🥪",
+      "items": [
+        {
+          "id": "qb1",
+          "name": "Crispy Golden Fries",
+          "price": 129,
+          "diet": "veg",
+          "desc": "Skin-on premium potatoes tossed in sea salt, served with Bros signature garlic mayo dip.",
+          "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "qb2",
+          "name": "Cheesy Loaded Nachos",
+          "price": 189,
+          "diet": "veg",
+          "desc": "Crunchy corn tortilla chips topped with molten cheese sauce, spicy salsa, jalapeños & sour cream.",
+          "image": "https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "qb3",
+          "name": "Garlic Butter Herb Toast",
+          "price": 149,
+          "diet": "veg",
+          "desc": "Artisanal crusty baguette infused with freshly chopped parsley, garlic confit, and mozzarella glaze.",
+          "image": "https://images.unsplash.com/photo-1573140247632-f8fd74997d5c?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "qb4",
+          "name": "Crispy Chicken Tenders",
+          "price": 229,
+          "diet": "nonveg",
+          "desc": "Herb-marinated chicken breast tenders crumbed and fried golden crisp with honey mustard sauce.",
+          "image": "https://images.unsplash.com/photo-1562967914-608f82629710?q=80&w=400&auto=format&fit=crop"
+        }
+      ]
+    },
+    {
+      "id": "desserts",
+      "name": "Desserts",
+      "icon": "🍰",
+      "items": [
+        {
+          "id": "d1",
+          "name": "Belgian Molten Choco Lava",
+          "price": 199,
+          "diet": "veg",
+          "desc": "Warm baked dark chocolate sponge with an oozing liquid ganache core, dusted with powdered sugar.",
+          "image": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "d2",
+          "name": "New York Classic Cheesecake",
+          "price": 229,
+          "diet": "veg",
+          "desc": "Silky baked cream cheese on a buttery graham cracker crust with wild berry compote drizzle.",
+          "image": "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "d3",
+          "name": "Sizzling Brownie Sundae",
+          "price": 219,
+          "diet": "veg",
+          "desc": "Fudgy walnut brownie served on a sizzling hot plate with vanilla bean gelato & hot fudge sauce.",
+          "image": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=400&auto=format&fit=crop"
+        }
+      ]
+    },
+    {
+      "id": "burgers",
+      "name": "Burgers",
+      "icon": "🍔",
+      "items": [
+        {
+          "id": "b1",
+          "name": "Signature Bitez Burger",
+          "price": 249,
+          "diet": "nonveg",
+          "desc": "Juicy flame-grilled patty, melted aged cheddar, caramelized onions, crisp lettuce & house smoke sauce.",
+          "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "b2",
+          "name": "Crispy Crunch Chicken Burger",
+          "price": 229,
+          "diet": "nonveg",
+          "desc": "Spiced buttermilk fried chicken thigh, spicy chipotle slaw, dill pickles on toasted brioche bun.",
+          "image": "https://images.unsplash.com/photo-1625813506062-0aeb1d7a094b?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "b3",
+          "name": "Smoky BBQ Paneer Burger",
+          "price": 199,
+          "diet": "veg",
+          "desc": "Grilled marinated cottage cheese patty, bell pepper relish, molten gouda, and smoky barbecue aioli.",
+          "image": "https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=400&auto=format&fit=crop"
+        }
+      ]
+    },
+    {
+      "id": "pizzas",
+      "name": "Pizzas",
+      "icon": "🍕",
+      "items": [
+        {
+          "id": "p1",
+          "name": "Margherita Classica",
+          "price": 299,
+          "diet": "veg",
+          "desc": "San Marzano tomato base, fresh buffalo mozzarella, aromatic sweet basil leaves, and extra virgin olive oil.",
+          "image": "https://images.unsplash.com/photo-1604382355076-af4b0eb60143?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "p2",
+          "name": "Farmhouse Supreme",
+          "price": 349,
+          "diet": "veg",
+          "desc": "Loaded with button mushrooms, charred bell peppers, sweet corn, black olives & fresh mozzarella.",
+          "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "p3",
+          "name": "Smoked Pepperoni & Chicken",
+          "price": 399,
+          "diet": "nonveg",
+          "desc": "Rustic crust topped with spicy pepperoni, shredded chicken barbecue, chili flakes, and hot honey.",
+          "image": "https://images.unsplash.com/photo-1628840042765-356cda07504e?q=80&w=400&auto=format&fit=crop"
+        }
+      ]
+    },
+    {
+      "id": "drinks",
+      "name": "Shakes & Drinks",
+      "icon": "🥤",
+      "items": [
+        {
+          "id": "dr1",
+          "name": "Oreo Mudslide Thickshake",
+          "price": 179,
+          "diet": "veg",
+          "desc": "Creamy vanilla ice cream blended with crushed Oreos, dark chocolate syrup, and whipped cream crown.",
+          "image": "https://images.unsplash.com/photo-1572490122747-3968b75cc699?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "dr2",
+          "name": "Sparkling Berry Mojito",
+          "price": 149,
+          "diet": "veg",
+          "desc": "Muddled fresh mint, wild berries, lime wedges, simple syrup topped with effervescent soda.",
+          "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=400&auto=format&fit=crop"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,849 @@
+/* ==========================================================
+   BROS & BITEZ - DIGITAL QR MENU STYLESHEET (VIEW ONLY)
+   Exact replication of the warm amber cafe bistro menu
+   ========================================================== */
+
+:root {
+  /* Core Theme Colors from Reference */
+  --primary-amber: #EAA627;
+  --amber-dark: #D79219;
+  --amber-glow: rgba(234, 166, 39, 0.4);
+  --bg-amber: #EDA82D;
+  
+  /* Neutral Cream & Card Tones */
+  --card-cream: #F8F3E6;
+  --card-cream-light: #FFFDF9;
+  --card-border: #EFE4D0;
+  --pill-inactive-bg: #F8F3E6;
+  --pill-active-bg: #1F1714;
+  --pill-active-text: #FFFFFF;
+  --pill-inactive-text: #2A1D17;
+  
+  /* Text & Accents */
+  --text-dark: #2A1D17;
+  --text-muted: #7A6D63;
+  --text-tagline: #FFFFFF;
+  --accent-veg: #108A46;
+  --accent-nonveg: #D32F2F;
+  --accent-blue: #1877F2;
+  
+  /* Elevation Shadows */
+  --shadow-sm: 0 2px 8px rgba(42, 29, 23, 0.08);
+  --shadow-card: 0 8px 24px rgba(42, 29, 23, 0.12);
+  
+  /* Geometry */
+  --radius-card: 26px;
+  --radius-pill: 40px;
+  --radius-item-img: 14px;
+  
+  /* Fonts */
+  --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-brand: 'Outfit', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: #1a1614;
+  color: var(--text-dark);
+  line-height: 1.45;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-x: hidden;
+}
+
+/* ==========================================================
+   VIEWPORT & MOBILE CONTAINER
+   Matches mobile scan experience & desktop preview
+   ========================================================== */
+.app-viewport {
+  width: 100%;
+  max-width: 460px;
+  min-height: 100vh;
+  margin: 0 auto;
+  position: relative;
+  background-color: var(--bg-amber);
+}
+
+@media (min-width: 600px) {
+  body {
+    padding: 30px 16px;
+    background: radial-gradient(circle at center, #2E2219 0%, #15100E 100%);
+  }
+
+  .app-viewport {
+    border-radius: 46px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 0 10px #0D0A09, 0 0 0 14px #382A22;
+    overflow: hidden;
+  }
+}
+
+.mobile-frame {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--bg-amber);
+  position: relative;
+  padding-bottom: 24px;
+}
+
+/* ==========================================================
+   HERO & HEADER SECTION
+   Exact straight line cut between cafe photo and amber color
+   ========================================================== */
+.hero-section {
+  position: relative;
+  width: 100%;
+  background-color: var(--bg-amber);
+}
+
+/* Cafe Photo Banner with Crisp Straight Bottom Cut */
+.hero-banner {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  background-image: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1000&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center 36%;
+  /* No rounded bottom, sharp straight line */
+}
+
+/* Subtle contrast overlay for top quick actions */
+.hero-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Top Quick Action Circles */
+.top-nav-bar {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 12px 18px;
+}
+
+.quick-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.action-circle-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2D201A;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.action-circle-btn:hover,
+.action-circle-btn:active {
+  transform: translateY(-2px) scale(1.05);
+  background: #FFFFFF;
+}
+
+/* Central Circular Logo Badge Overlapping Straight Line (50% top, 50% bottom) */
+.logo-container {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  margin-top: -68px; /* Perfectly centers logo on straight line cut */
+  margin-bottom: 14px;
+}
+
+.logo-circle-badge {
+  width: 136px;
+  height: 136px;
+  border-radius: 50%;
+  background: #000000;
+  border: none;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.brand-main-logo {
+  width: 125%;
+  height: 125%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Search Input */
+.search-filter-row {
+  position: relative;
+  z-index: 5;
+  padding: 0 20px;
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: var(--radius-pill);
+  padding: 8px 16px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.search-icon {
+  color: #8C7565;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.search-input-wrapper input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-family: var(--font-main);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-dark);
+  outline: none;
+}
+
+.search-input-wrapper input::placeholder {
+  color: #9E8C7F;
+  font-weight: 400;
+}
+
+.clear-search-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #8C7565;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+/* ==========================================================
+   HORIZONTAL CATEGORY PILLS BAR
+   Matches pill styling in reference (dark active, cream rest)
+   ========================================================== */
+.categories-bar {
+  width: 100%;
+  margin-top: 14px;
+  margin-bottom: 12px;
+}
+
+.categories-scroll {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 18px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.categories-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.category-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  background: var(--pill-inactive-bg);
+  color: var(--pill-inactive-text);
+  font-size: 14.5px;
+  font-weight: 700;
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.07);
+  transition: all 0.22s ease-in-out;
+  user-select: none;
+}
+
+.category-pill .cat-icon {
+  font-size: 17px;
+  line-height: 1;
+}
+
+/* Active Category Pill (Dark) */
+.category-pill.active {
+  background: var(--pill-active-bg);
+  color: var(--pill-active-text);
+  box-shadow: 0 5px 15px rgba(31, 23, 20, 0.35);
+  transform: translateY(-1px);
+}
+
+.category-pill:hover:not(.active) {
+  background: #FFFFFF;
+}
+
+/* ==========================================================
+   CATEGORY META HEADER (Count & Veg/Non-Veg Filter)
+   ========================================================== */
+.category-meta-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 20px 10px;
+}
+
+.category-title-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.active-category-name {
+  font-family: var(--font-brand);
+  font-size: 18px;
+  font-weight: 800;
+  color: #261B16;
+}
+
+.item-count-badge {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #573E31;
+  background: rgba(255, 255, 255, 0.45);
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.dietary-filter-toggles {
+  display: flex;
+  background: rgba(255, 255, 255, 0.45);
+  padding: 3px;
+  border-radius: 16px;
+  gap: 3px;
+}
+
+.diet-btn {
+  border: none;
+  background: transparent;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #3B2A22;
+  padding: 4px 9px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.18s ease;
+}
+
+.diet-btn.active {
+  background: #FFFFFF;
+  color: #1F1714;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.diet-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.veg-dot {
+  background-color: var(--accent-veg);
+}
+
+.nonveg-dot {
+  background-color: var(--accent-nonveg);
+}
+
+/* ==========================================================
+   MENU CARD CONTAINER
+   Exact replica of the rounded cream card with items
+   ========================================================== */
+.menu-container {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.menu-card {
+  background: var(--card-cream);
+  border-radius: var(--radius-card);
+  padding: 16px 18px 8px;
+  box-shadow: var(--shadow-card);
+}
+
+/* Individual Menu Item Row - Exact Layout from Screenshot */
+.menu-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--card-border);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.menu-item-row:last-child {
+  border-bottom: none;
+}
+
+.menu-item-row:hover {
+  opacity: 0.95;
+}
+
+/* Left Item Details: Title and Price underneath */
+.item-info-col {
+  flex: 1;
+  padding-right: 16px;
+}
+
+.item-badge-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.item-diet-symbol {
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid;
+  border-radius: 3px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.item-diet-symbol.veg {
+  border-color: var(--accent-veg);
+}
+
+.item-diet-symbol.veg::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-veg);
+  border-radius: 50%;
+}
+
+.item-diet-symbol.nonveg {
+  border-color: var(--accent-nonveg);
+}
+
+.item-diet-symbol.nonveg::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-nonveg);
+  border-radius: 50%;
+}
+
+.item-name {
+  font-family: var(--font-main);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: -0.2px;
+}
+
+.item-desc {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  line-height: 1.35;
+  margin-bottom: 4px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.item-price {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-dark);
+  display: block;
+}
+
+/* Right Item Thumbnail - 1:1 Square Ratio */
+.item-thumb-col {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
+}
+
+.item-img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  background-color: #E2D9C8;
+  display: block;
+}
+
+/* Empty State */
+.empty-menu-box {
+  text-align: center;
+  padding: 35px 20px;
+  color: var(--text-muted);
+}
+
+.empty-menu-icon {
+  font-size: 38px;
+  margin-bottom: 8px;
+}
+
+/* ==========================================================
+   SOCIAL MEDIA & CONNECT CARD (Matching Bottom Reference)
+   ========================================================== */
+.social-section {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.social-card {
+  background: var(--card-cream);
+  border-radius: var(--radius-card);
+  padding: 16px 14px;
+  display: flex;
+  align-items: center;
+  box-shadow: var(--shadow-card);
+}
+
+.social-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+  padding: 6px 8px;
+  border-radius: 16px;
+  transition: background 0.2s ease;
+}
+
+.social-item:hover,
+.social-item:active {
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.social-divider {
+  width: 1px;
+  height: 48px;
+  background-color: var(--card-border);
+  margin: 0 4px;
+}
+
+.social-icon {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.social-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.social-name {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text-dark);
+  line-height: 1.2;
+}
+
+.social-sub {
+  font-size: 10px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  margin-top: 2px;
+}
+
+/* Extra Quick Action Pills below Social (Wifi & Google Reviews) */
+.aux-actions-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.aux-pill-btn {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border: none;
+  border-radius: 16px;
+  padding: 10px 12px;
+  font-family: var(--font-main);
+  font-size: 12px;
+  font-weight: 700;
+  color: #2F211A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s ease;
+}
+
+.aux-pill-btn:hover {
+  background: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================
+   APP FOOTER
+   ========================================================== */
+.app-footer {
+  text-align: center;
+  padding: 12px 20px 24px;
+}
+
+.cafe-timings {
+  font-size: 12px;
+  font-weight: 700;
+  color: #38281F;
+  margin-bottom: 4px;
+}
+
+.copyright-note {
+  font-size: 10.5px;
+  color: #634B3D;
+}
+
+.admin-link-wrap {
+  margin-top: 6px;
+}
+
+.admin-portal-link {
+  font-size: 11px;
+  color: #796152;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.admin-portal-link:hover {
+  color: #1F1714;
+}
+
+/* ==========================================================
+   MODAL DIALOGS (Item Details & Wi-Fi)
+   ========================================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 12, 9, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 200;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  width: 100%;
+  max-width: 460px;
+  background: #FFFDF9;
+  border-top-left-radius: 28px;
+  border-top-right-radius: 28px;
+  overflow: hidden;
+  position: relative;
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.modal-overlay.active .modal-content {
+  transform: translateY(0);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.modal-image-wrap {
+  width: 100%;
+  height: 220px;
+  position: relative;
+  background: #EFE6D4;
+}
+
+.modal-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.diet-tag {
+  position: absolute;
+  bottom: 12px;
+  left: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.modal-body {
+  padding: 20px 22px 28px;
+}
+
+.modal-header-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.modal-item-title {
+  font-family: var(--font-brand);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.modal-item-price {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.modal-item-desc {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Wi-Fi Dialog */
+.small-dialog {
+  text-align: center;
+  padding: 24px 20px;
+  border-radius: 28px !important;
+  margin: auto 16px;
+}
+
+.dialog-icon {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.small-dialog h3 {
+  font-family: var(--font-brand);
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.wifi-details-card {
+  background: var(--card-cream);
+  padding: 14px 16px;
+  border-radius: 16px;
+  text-align: left;
+  margin-bottom: 14px;
+}
+
+.wifi-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.wifi-row:last-child {
+  margin-bottom: 0;
+}
+
+.w-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.w-val {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.code-font {
+  font-family: monospace;
+  background: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 6px;
+  border: 1px solid #DFD2BE;
+}
+
+.copy-pass-btn {
+  background: var(--pill-active-bg);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+.wifi-hint {
+  font-size: 11.5px;
+  color: #796658;
+}

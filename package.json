@@ -1,0 +1,17 @@
+{
+  "name": "bros-and-bitez-qr-menu",
+  "version": "1.0.0",
+  "description": "Bros & Bitez Digital QR Menu - Admin Dashboard & Customer Menu",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": ["restaurant", "qr-menu", "digital-menu"],
+  "author": "Bros & Bitez",
+  "license": "UNLICENSED",
+  "private": true
+}

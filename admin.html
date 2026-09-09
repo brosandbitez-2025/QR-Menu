@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bros & Bitez - Admin Dashboard</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <!-- PIN Protection Gate Modal -->
+  <div class="pin-gate-overlay" id="pinGateModal">
+    <div class="pin-card">
+      <div class="pin-logo-wrap">
+        <img src="Assets/bros_bitez_logo_clean.png" alt="Bros and Bitez" class="pin-logo">
+      </div>
+      <h2>Admin Authentication</h2>
+      <p class="pin-desc">Enter your manager PIN to manage the digital QR menu.</p>
+      <div class="pin-input-group">
+        <input type="password" id="adminPinInput" maxlength="8" placeholder="••••" autofocus>
+        <button id="submitPinBtn">Unlock</button>
+      </div>
+      <p class="pin-error" id="pinError" style="display: none;">Incorrect PIN. Please try again.</p>
+    </div>
+  </div>
+
+  <!-- Admin Main Layout -->
+  <div class="admin-app" id="adminApp" style="display: none;">
+    
+    <!-- Top Global Header -->
+    <header class="admin-topbar">
+      <div class="brand-badge-row">
+        <div class="header-logo-circle">
+          <img src="Assets/bros_bitez_logo_clean.png" alt="Bros & Bitez" id="headerLogoThumb">
+        </div>
+        <div>
+          <h1 class="portal-title">Bros & Bitez</h1>
+          <span class="portal-sub">Menu Management Portal</span>
+        </div>
+      </div>
+
+      <div class="topbar-actions">
+        <a href="/" target="_blank" class="preview-menu-btn" title="Open Customer Menu in New Tab">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+          <span>View Live Menu</span>
+        </a>
+        <button class="save-all-btn" id="saveAllChangesBtn">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+            <polyline points="17 21 17 13 7 13 7 21"></polyline>
+            <polyline points="7 3 7 8 15 8"></polyline>
+          </svg>
+          <span>Save Changes</span>
+        </button>
+      </div>
+
+      <button class="logout-btn" id="logoutBtn" title="Lock Admin" aria-label="Lock Admin">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+      </button>
+    </header>
+
+    <!-- Navigation Tabs Bar -->
+    <nav class="admin-tabs-nav">
+      <button class="tab-btn active" data-tab="tab-brand">
+        <span class="tab-icon">🎨</span>
+        <span>Logo & Background</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-menu">
+        <span class="tab-icon">🍽️</span>
+        <span>Menu Items</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-categories">
+        <span class="tab-icon">📂</span>
+        <span>Categories</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-hours">
+        <span class="tab-icon">🕒</span>
+        <span>Hours & Wi-Fi</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-socials">
+        <span class="tab-icon">🔗</span>
+        <span>Socials & Contacts</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-security">
+        <span class="tab-icon">🔐</span>
+        <span>Security</span>
+      </button>
+    </nav>
+
+    <!-- Main Tab Content Area -->
+    <main class="tab-content-container">
+
+      <!-- TAB 1: BRAND VISUALS (LOGO & HERO PHOTO) -->
+      <section class="tab-pane active" id="tab-brand">
+        <div class="panel-card">
+          <div class="panel-header">
+            <h2>Brand Visuals & Header</h2>
+            <p>Update your restaurant logo and top cafe interior banner.</p>
+          </div>
+
+          <div class="visuals-grid">
+            <!-- Logo Section -->
+            <div class="visual-box">
+              <h3>Restaurant Logo</h3>
+              <p class="field-hint">Upload a high-resolution logo image. Square or circular formats look best.</p>
+              
+              <div class="logo-preview-wrapper">
+                <div class="logo-circle-display">
+                  <img src="" alt="Current Logo" id="brandLogoPreview">
+                </div>
+              </div>
+
+              <div class="upload-field-row">
+                <label class="custom-file-upload">
+                  <input type="file" id="logoFileInput" accept="image/*">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                  </svg>
+                  <span>Upload Logo from Device</span>
+                </label>
+                <div class="or-separator">OR</div>
+                <input type="text" id="logoUrlInput" placeholder="Enter Logo Image URL or Path">
+              </div>
+            </div>
+
+            <!-- Hero Background Banner -->
+            <div class="visual-box">
+              <h3>Hero Background Photo</h3>
+              <p class="field-hint">The wide photo banner shown at the top of the mobile menu.</p>
+              
+              <div class="banner-preview-wrapper" id="bannerPreviewBox">
+                <span class="banner-overlay-label">Straight-cut Preview</span>
+              </div>
+
+              <div class="upload-field-row">
+                <label class="custom-file-upload">
+                  <input type="file" id="heroFileInput" accept="image/*">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                  </svg>
+                  <span>Upload Banner Photo</span>
+                </label>
+                <div class="or-separator">OR</div>
+                <input type="text" id="heroBgUrlInput" placeholder="Enter Banner Image URL or Path">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 2: MENU ITEMS MANAGER -->
+      <section class="tab-pane" id="tab-menu">
+        <div class="panel-card">
+          <div class="panel-header-with-actions">
+            <div>
+              <h2>Menu Items Management</h2>
+              <p>Add, edit dish details, adjust prices in ₹, or upload 1:1 dish photos.</p>
+            </div>
+            <button class="primary-btn" id="openAddItemModalBtn">
+              <span>+ Add New Dish</span>
+            </button>
+          </div>
+
+          <!-- Modern Category Chips Filter & Search Bar -->
+          <div class="modern-menu-toolbar">
+            <div class="category-chips-header">
+              <span class="chips-label">Categories:</span>
+              <div class="category-chips-scroll" id="categoryPillChips">
+                <!-- Dynamically injected interactive category pills -->
+              </div>
+            </div>
+            
+            <div class="search-dish-box">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="text" id="adminSearchInput" placeholder="Search dishes by name or ingredients...">
+            </div>
+          </div>
+
+          <!-- Menu Items List (Same clean style as QR Menu) -->
+          <div class="admin-menu-list-card">
+            <div class="admin-menu-list-header">
+              <span class="menu-list-count" id="adminMenuListCount">Dishes</span>
+              <span class="menu-list-tip">💡 Use ⬆/⬇ to reorder dishes • Click 'Save Changes' to sync with QR menu</span>
+            </div>
+            <div class="admin-menu-items-wrap" id="adminMenuList">
+              <!-- Injected QR-style dish items -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 3: CATEGORIES MANAGER (ADD, DELETE, EDIT, REORDER) -->
+      <section class="tab-pane" id="tab-categories">
+        <div class="panel-card">
+          <div class="panel-header-with-actions">
+            <div>
+              <h2>Category Management</h2>
+              <p>Add, edit, delete, and reorder categories. Sequence reflects directly on the QR menu.</p>
+            </div>
+            <button class="primary-btn" id="openAddCategoryModalBtn">
+              <span>+ Add New Category</span>
+            </button>
+          </div>
+
+          <div class="category-reorder-hint">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            <span>Use the <strong>⬆ Move Up</strong> and <strong>⬇ Move Down</strong> buttons on any category to change display order.</span>
+          </div>
+
+          <div class="categories-list-container" id="categoriesGrid">
+            <!-- Injected category reorderable cards -->
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 4: DINE-IN HOURS & WI-FI -->
+      <section class="tab-pane" id="tab-hours">
+        <div class="panel-card">
+          <div class="panel-header">
+            <h2>Dine-In Hours & Customer Wi-Fi</h2>
+            <p>Update opening hours displayed at the footer and guest Wi-Fi details.</p>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="dineInHoursInput">Dine-in Hours Text:</label>
+              <input type="text" id="dineInHoursInput" placeholder="e.g. 10:00 AM – 11:30 PM">
+              <span class="field-hint">Displayed at the bottom of the customer menu.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="footerTextInput">Footer Copyright Text:</label>
+              <input type="text" id="footerTextInput" placeholder="e.g. © 2026 Bros & Bitez • Digital QR Menu">
+            </div>
+
+            <div class="form-group">
+              <label for="wifiSsidInput">Guest Wi-Fi Network Name (SSID):</label>
+              <input type="text" id="wifiSsidInput" placeholder="e.g. Bros_And_Bitez_Guest">
+            </div>
+
+            <div class="form-group">
+              <label for="wifiPassInput">Guest Wi-Fi Password:</label>
+              <input type="text" id="wifiPassInput" placeholder="e.g. tastybitez2026">
+              <span class="field-hint">Customers can copy this password with a single tap.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 5: SOCIALS & CONTACTS -->
+      <section class="tab-pane" id="tab-socials">
+        <div class="panel-card">
+          <div class="panel-header">
+            <h2>Social Media & Direct Contacts</h2>
+            <p>Configure links for social followers, table calls, and WhatsApp.</p>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="fbUrlInput">Facebook Page URL:</label>
+              <input type="text" id="fbUrlInput" placeholder="https://facebook.com/yourpage">
+            </div>
+
+            <div class="form-group">
+              <label for="igUrlInput">Instagram Profile URL:</label>
+              <input type="text" id="igUrlInput" placeholder="https://instagram.com/yourprofile">
+            </div>
+
+            <div class="form-group">
+              <label for="whatsappInput">WhatsApp Phone Number (with Country Code):</label>
+              <input type="text" id="whatsappInput" placeholder="e.g. 919876543210 (no + or spaces)">
+              <span class="field-hint">Connected to the WhatsApp button in the top header.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="phoneInput">Phone Call Number:</label>
+              <input type="text" id="phoneInput" placeholder="e.g. +91 98765 43210">
+              <span class="field-hint">Opens dialer when tapped.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="mapsUrlInput">Google Maps Location Link:</label>
+              <input type="text" id="mapsUrlInput" placeholder="https://maps.google.com/?q=...">
+            </div>
+
+            <div class="form-group">
+              <label for="googleReviewUrlInput">Google 5-Star Review Link:</label>
+              <input type="text" id="googleReviewUrlInput" placeholder="https://search.google.com/local/writereview?placeid=...">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 6: SECURITY / CHANGE PIN -->
+      <section class="tab-pane" id="tab-security">
+        <div class="panel-card">
+          <div class="panel-header">
+            <h2>Security Settings</h2>
+            <p>Change your admin login PIN. You must verify your current PIN before setting a new one.</p>
+          </div>
+
+          <div class="security-pin-box">
+            <div class="security-pin-icon">
+              <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </div>
+            <h3>Change Admin PIN</h3>
+            <p class="security-pin-desc">Your PIN is used to lock and unlock the admin dashboard. Choose a memorable but secure PIN (minimum 4 digits).</p>
+
+            <form id="changePinForm" class="change-pin-form" autocomplete="off">
+              <div class="form-group">
+                <label for="changePinCurrent">Current PIN</label>
+                <div class="pin-input-wrapper">
+                  <input type="password" id="changePinCurrent" maxlength="8" placeholder="Enter current PIN" autocomplete="current-password" inputmode="numeric">
+                  <button type="button" class="pin-eye-btn" data-target="changePinCurrent" title="Show/Hide">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="changePinNew">New PIN</label>
+                <div class="pin-input-wrapper">
+                  <input type="password" id="changePinNew" maxlength="8" placeholder="Enter new PIN (min 4 digits)" autocomplete="new-password" inputmode="numeric">
+                  <button type="button" class="pin-eye-btn" data-target="changePinNew" title="Show/Hide">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="changePinConfirm">Confirm New PIN</label>
+                <div class="pin-input-wrapper">
+                  <input type="password" id="changePinConfirm" maxlength="8" placeholder="Re-enter new PIN" autocomplete="new-password" inputmode="numeric">
+                  <button type="button" class="pin-eye-btn" data-target="changePinConfirm" title="Show/Hide">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  </button>
+                </div>
+              </div>
+
+              <div id="changePinMsg" class="change-pin-msg" style="display:none;"></div>
+
+              <button type="submit" class="change-pin-submit-btn">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                Update Admin PIN
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ADD / EDIT MENU ITEM MODAL -->
+  <div class="admin-modal-overlay" id="itemFormModal" aria-hidden="true">
+    <div class="admin-modal-box">
+      <div class="modal-top">
+        <h3 id="itemModalHeading">Add New Menu Item</h3>
+        <button class="close-modal-btn" id="closeItemFormModal">&times;</button>
+      </div>
+
+      <form id="itemEditForm" class="modal-form">
+        <input type="hidden" id="editItemId">
+        
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="itemFormName">Dish Name *</label>
+            <input type="text" id="itemFormName" required placeholder="e.g. Hazelnut Frappe">
+          </div>
+
+          <div class="form-group">
+            <label>Category *</label>
+            <div class="custom-dropdown" id="customCatDropdown">
+              <button type="button" class="custom-dropdown-btn" id="customCatBtn">
+                <span class="custom-dropdown-selected" id="customCatSelected">
+                  <span class="cat-drop-icon">☕</span>
+                  <span class="cat-drop-text">Coffee</span>
+                </span>
+                <svg class="dropdown-arrow-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="custom-dropdown-menu" id="customCatMenu">
+                <!-- Dynamically injected category options -->
+              </div>
+              <input type="hidden" id="itemFormCategory" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="itemFormPrice">Price in Rupees (₹) *</label>
+            <input type="number" id="itemFormPrice" required min="1" step="1" placeholder="e.g. 149">
+          </div>
+
+          <div class="form-group">
+            <label>Dietary Preference *</label>
+            <div class="diet-segmented-picker" id="dietSegmentedPicker">
+              <button type="button" class="diet-picker-btn active" data-diet="veg">
+                <span class="diet-symbol veg"></span>
+                <span>Pure Veg</span>
+              </button>
+              <button type="button" class="diet-picker-btn" data-diet="nonveg">
+                <span class="diet-symbol nonveg"></span>
+                <span>Non-Veg</span>
+              </button>
+            </div>
+            <input type="hidden" id="itemFormDiet" value="veg" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Dish Photo (1:1 Ratio)</label>
+          <div class="item-img-upload-field">
+            <div class="item-img-preview-thumb">
+              <img src="" alt="" id="itemFormImgPreview">
+            </div>
+            <div class="item-img-inputs">
+              <label class="custom-file-upload small-upload">
+                <input type="file" id="itemFileInput" accept="image/*">
+                <span>Upload 1:1 Photo</span>
+              </label>
+              <input type="text" id="itemFormImgUrl" placeholder="Or paste image URL">
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer-actions">
+          <button type="button" class="secondary-btn" id="cancelItemBtn">Cancel</button>
+          <button type="submit" class="primary-btn">Save Dish</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ADD / EDIT CATEGORY MODAL -->
+  <div class="admin-modal-overlay" id="categoryFormModal" aria-hidden="true">
+    <div class="admin-modal-box small-modal">
+      <div class="modal-top">
+        <h3 id="categoryModalHeading">Add Category</h3>
+        <button class="close-modal-btn" id="closeCategoryFormModal">&times;</button>
+      </div>
+
+      <form id="categoryEditForm" class="modal-form">
+        <input type="hidden" id="editCategoryId">
+
+        <div class="form-group">
+          <label for="catFormName">Category Name *</label>
+          <input type="text" id="catFormName" required placeholder="e.g. Shakes & Chillers">
+        </div>
+
+        <div class="form-group">
+          <label for="catFormIcon">Category Icon / Emoji *</label>
+          <div class="icon-input-row">
+            <input type="text" id="catFormIcon" required placeholder="e.g. 🥤" value="🍽️" style="width: 60px; text-align: center; font-size: 22px;">
+            <div class="emoji-presets">
+              <!-- Hot Drinks -->
+              <button type="button" class="preset-emoji-btn" data-emoji="☕">☕</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🍵">🍵</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🧋">🧋</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🍶">🍶</button>
+              <!-- Cold Drinks -->
+              <button type="button" class="preset-emoji-btn" data-emoji="🥤">🥤</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🧃">🧃</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🍹">🍹</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🍸">🍸</button>
+              <!-- Fast Food -->
+              <button type="button" class="preset-emoji-btn" data-emoji="🍔">🍔</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🍟">🍟</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🌭">🌭</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🥙">🥙</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🌮">🌮</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🌯">🌯</button>
+              <!-- Sandwiches & Bread -->
+              <button type="button" class="preset-emoji-btn" data-emoji="🥪">🥪</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🥨">🥨</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🥐">🥐</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🍞">🍞</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🧇">🧇</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🥞">🥞</button>
+              <!-- Pizza & Italian -->
+              <button type="button" class="preset-emoji-btn" data-emoji="🍕">🍕</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🍝">🍝</button>
+              <!-- Asian Food -->
+              <button type="button" class="preset-emoji-btn" data-emoji="🍜">🍜</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🍛">🍛</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🍣">🍣</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🍱">🍱</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🍤">🍤</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🥟">🥟</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🍙">🍙</button>
+              <!-- Snacks -->
+              <button type="button" class="preset-emoji-btn" data-emoji="🍿">🍿</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🧆">🧆</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🥜">🥜</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🧀">🧀</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🥚">🥚</button>
+              <!-- Desserts & Sweets -->
+              <button type="button" class="preset-emoji-btn" data-emoji="🍰">🍰</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🎂">🎂</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🧁">🧁</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🍩">🍩</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🍪">🍪</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🍫">🍫</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🍭">🍭</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🍨">🍨</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🍦">🍦</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🧋">🧋</button>
+              <!-- Fruits & Healthy -->
+              <button type="button" class="preset-emoji-btn" data-emoji="🥗">🥗</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🥑">🥑</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🫐">🫐</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🍓">🍓</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🍉">🍉</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🍋">🍋</button>
+              <!-- Meat & Grill -->
+              <button type="button" class="preset-emoji-btn" data-emoji="🍗">🍗</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🍖">🍖</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🥩">🥩</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🍢">🍢</button>
+              <!-- Breakfast -->
+              <button type="button" class="preset-emoji-btn" data-emoji="🥓">🥓</button>
+              <button type="button" class="preset-emoji-btn" data-emoji="🍳">🍳</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer-actions">
+          <button type="button" class="secondary-btn" id="cancelCategoryBtn">Cancel</button>
+          <button type="submit" class="primary-btn">Save Category</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- CUSTOM DELETE CONFIRMATION MODAL -->
+  <div class="admin-modal-overlay" id="confirmDeleteModal" aria-hidden="true">
+    <div class="admin-modal-box confirm-modal-box">
+      <div class="confirm-modal-icon-wrap">
+        <div class="confirm-danger-icon">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="3 6 5 6 21 6"></polyline>
+            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+            <line x1="10" y1="11" x2="10" y2="17"></line>
+            <line x1="14" y1="11" x2="14" y2="17"></line>
+          </svg>
+        </div>
+      </div>
+      <h3 class="confirm-modal-title" id="confirmModalTitle">Delete Dish?</h3>
+      <p class="confirm-modal-desc" id="confirmModalDesc">Are you sure you want to delete this item? This action cannot be undone.</p>
+      
+      <div class="confirm-modal-actions">
+        <button type="button" class="confirm-cancel-btn" id="confirmModalCancelBtn">Cancel</button>
+        <button type="button" class="confirm-delete-btn" id="confirmModalConfirmBtn">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="3 6 5 6 21 6"></polyline>
+            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+          </svg>
+          <span id="confirmModalBtnText">Yes, Delete</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="admin-toast" id="adminToast">Changes saved successfully!</div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
