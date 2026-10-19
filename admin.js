@@ -244,7 +244,10 @@ if (changePinForm) {
 // ==========================================================
 async function loadData() {
   try {
-    const res = await fetch("/api/menu");
+    let res = await fetch("/api/menu");
+    if (!res.ok) {
+      res = await fetch("menu_data.json");
+    }
     if (!res.ok) throw new Error("Could not fetch data");
     adminData = await res.json();
     populateAllFields();

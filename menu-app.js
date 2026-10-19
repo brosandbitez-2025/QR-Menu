@@ -92,15 +92,27 @@ async function initApp() {
   setupLiveSync();
 }
 
-// Fetch dynamic configuration from API
+// Fetch dynamic configuration from API with seamless static fallback
 async function loadMenuData() {
   try {
-    const res = await fetch("/api/menu");
+    let res = await fetch("/api/menu");
+    if (!res.ok) {
+      res = await fetch("menu_data.json");
+    }
     if (res.ok) {
       const data = await res.json();
       applyConfig(data);
+      return;
     }
   } catch (err) {
+    try {
+      const res = await fetch("menu_data.json");
+      if (res.ok) {
+        const data = await res.json();
+        applyConfig(data);
+        return;
+      }
+    } catch (_) {}
     console.warn("Using local fallback menu data:", err);
   }
 }
