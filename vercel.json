@@ -3,6 +3,17 @@
   "framework": null,
   "cleanUrls": true,
   "rewrites": [
+    { "source": "/menu_data.json", "destination": "/api/menu" },
     { "source": "/admin", "destination": "/admin.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" },
+        { "key": "Pragma", "value": "no-cache" },
+        { "key": "Expires", "value": "0" }
+      ]
+    }
   ]
 }

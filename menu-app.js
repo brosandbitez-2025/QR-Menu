@@ -88,20 +88,18 @@ async function initApp() {
 
 // Fetch dynamic configuration from API with seamless localStorage and static fallback
 async function loadMenuData() {
-  let hasLocal = false;
-  // 1. Check localStorage first (instant local/admin edits)
+  // 1. Instant render from local cache while network request runs
   const localSaved = localStorage.getItem("bros_bitez_menu_data");
   if (localSaved) {
     try {
       const parsed = JSON.parse(localSaved);
       if (parsed && Array.isArray(parsed.categories) && parsed.categories.length > 0) {
         applyConfig(parsed);
-        hasLocal = true;
       }
     } catch (_) {}
   }
 
-  // 2. Fetch latest from API with cache-busting timestamp
+  // 2. Always fetch latest live menu from server and apply it across all devices
   try {
     let res = await fetch("/api/menu?t=" + Date.now(), { cache: "no-store" });
     if (!res.ok) {
@@ -110,10 +108,12 @@ async function loadMenuData() {
     if (res.ok) {
       const data = await res.json();
       if (data && Array.isArray(data.categories) && data.categories.length > 0) {
-        // Only overwrite local state if we don't have local changes or server has fresh categories
-        if (!hasLocal) {
-          applyConfig(data);
-        }
+        applyConfig(data);
+        renderCategories();
+        renderMenuList();
+        try {
+          localStorage.setItem("bros_bitez_menu_data", JSON.stringify(data));
+        } catch (_) {}
         return;
       }
     }
