@@ -15,8 +15,8 @@
     "igUrl": "https://www.instagram.com/bros_and_bitez?stkn=cjk0ZnZ2OHJzamFv",
     "igLabel": "Follow us on Instagram",
     "googleReviewUrl": "https://g.page/r/CYEAikToMqyiEAE/review",
-    "wifiSsid": "Bros_And_Bitez_Guest",
-    "wifiPass": "tastybitez2026"
+    "wifiSsid": "",
+    "wifiPass": ""
   },
   "categories": [
     {
@@ -27,8 +27,8 @@
     },
     {
       "id": "coffee",
-      "name": "Coffee",
-      "icon": "☕",
+      "name": "Our Specials",
+      "icon": "🍟",
       "items": [
         {
           "id": "c1",
@@ -73,9 +73,32 @@
       ]
     },
     {
+      "id": "drinks",
+      "name": "Corn",
+      "icon": "🌽",
+      "items": [
+        {
+          "id": "dr1",
+          "name": "Oreo Mudslide Thickshake",
+          "price": 179,
+          "diet": "veg",
+          "desc": "Creamy vanilla ice cream blended with crushed Oreos, dark chocolate syrup, and whipped cream crown.",
+          "image": "https://images.unsplash.com/photo-1572490122747-3968b75cc699?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "dr2",
+          "name": "Sparkling Berry Mojito",
+          "price": 149,
+          "diet": "veg",
+          "desc": "Muddled fresh mint, wild berries, lime wedges, simple syrup topped with effervescent soda.",
+          "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=400&auto=format&fit=crop"
+        }
+      ]
+    },
+    {
       "id": "quick-bites",
-      "name": "Quick Bites",
-      "icon": "🥪",
+      "name": "Cutlet",
+      "icon": "🫓",
       "items": [
         {
           "id": "qb1",
@@ -113,8 +136,8 @@
     },
     {
       "id": "desserts",
-      "name": "Desserts",
-      "icon": "🍰",
+      "name": "Quick Bites",
+      "icon": "🍢",
       "items": [
         {
           "id": "d1",
@@ -144,7 +167,7 @@
     },
     {
       "id": "burgers",
-      "name": "Burgers",
+      "name": "Burger",
       "icon": "🍔",
       "items": [
         {
@@ -175,7 +198,7 @@
     },
     {
       "id": "pizzas",
-      "name": "Pizzas",
+      "name": "Pizza",
       "icon": "🍕",
       "items": [
         {
@@ -205,27 +228,88 @@
       ]
     },
     {
-      "id": "drinks",
-      "name": "Shakes & Drinks",
+      "id": "sandwich-5283",
+      "name": "Sandwich",
+      "icon": "🥪",
+      "items": []
+    },
+    {
+      "id": "shawarma-1667",
+      "name": "Shawarma",
+      "icon": "🌯",
+      "items": []
+    },
+    {
+      "id": "fried-rice-2566",
+      "name": "Fried Rice",
+      "icon": "🥘",
+      "items": []
+    },
+    {
+      "id": "noodles-0611",
+      "name": "Noodles",
+      "icon": "🍜",
+      "items": []
+    },
+    {
+      "id": "bread-omelette-6629",
+      "name": "Bread Omelette",
+      "icon": "🥪",
+      "items": []
+    },
+    {
+      "id": "momos-1771",
+      "name": "Momos",
+      "icon": "🥟",
+      "items": []
+    },
+    {
+      "id": "chaat-2723",
+      "name": "Chaat",
+      "icon": "🍛",
+      "items": []
+    },
+    {
+      "id": "waffle-7211",
+      "name": "Waffle",
+      "icon": "🧇",
+      "items": []
+    },
+    {
+      "id": "brownie-5475",
+      "name": "Brownie",
+      "icon": "🍩",
+      "items": []
+    },
+    {
+      "id": "mojito-9035",
+      "name": "Mojito",
+      "icon": "🍹",
+      "items": []
+    },
+    {
+      "id": "lassi-8690",
+      "name": "Lassi",
+      "icon": "🍶",
+      "items": []
+    },
+    {
+      "id": "milkshake-5099",
+      "name": "Milkshake",
       "icon": "🥤",
-      "items": [
-        {
-          "id": "dr1",
-          "name": "Oreo Mudslide Thickshake",
-          "price": 179,
-          "diet": "veg",
-          "desc": "Creamy vanilla ice cream blended with crushed Oreos, dark chocolate syrup, and whipped cream crown.",
-          "image": "https://images.unsplash.com/photo-1572490122747-3968b75cc699?q=80&w=400&auto=format&fit=crop"
-        },
-        {
-          "id": "dr2",
-          "name": "Sparkling Berry Mojito",
-          "price": 149,
-          "diet": "veg",
-          "desc": "Muddled fresh mint, wild berries, lime wedges, simple syrup topped with effervescent soda.",
-          "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=400&auto=format&fit=crop"
-        }
-      ]
+      "items": []
+    },
+    {
+      "id": "ice-cream-2116",
+      "name": "Ice Cream",
+      "icon": "🧁",
+      "items": []
+    },
+    {
+      "id": "milk-specials-6787",
+      "name": "Milk Specials",
+      "icon": "☕",
+      "items": []
     }
   ]
 }
