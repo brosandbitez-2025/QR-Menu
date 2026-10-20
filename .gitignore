@@ -21,3 +21,5 @@ npm-debug.log*
 # Admin config contains the PIN — keep local only, Railway uses its own copy
 # (Comment this out if you want the default PIN on Railway too)
 # admin_config.json
+
+.vercel
