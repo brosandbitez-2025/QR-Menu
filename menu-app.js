@@ -88,6 +88,7 @@ async function initApp() {
 
 // Fetch dynamic configuration from API with seamless localStorage and static fallback
 async function loadMenuData() {
+  let hasLocal = false;
   // 1. Check localStorage first (instant local/admin edits)
   const localSaved = localStorage.getItem("bros_bitez_menu_data");
   if (localSaved) {
@@ -95,30 +96,28 @@ async function loadMenuData() {
       const parsed = JSON.parse(localSaved);
       if (parsed && Array.isArray(parsed.categories) && parsed.categories.length > 0) {
         applyConfig(parsed);
+        hasLocal = true;
       }
     } catch (_) {}
   }
 
-  // 2. Fetch from server or static fallback
+  // 2. Fetch latest from API with cache-busting timestamp
   try {
-    let res = await fetch("/api/menu");
+    let res = await fetch("/api/menu?t=" + Date.now(), { cache: "no-store" });
     if (!res.ok) {
-      res = await fetch("menu_data.json");
+      res = await fetch("menu_data.json?t=" + Date.now(), { cache: "no-store" });
     }
     if (res.ok) {
       const data = await res.json();
-      applyConfig(data);
-      return;
-    }
-  } catch (err) {
-    try {
-      const res = await fetch("menu_data.json");
-      if (res.ok) {
-        const data = await res.json();
-        applyConfig(data);
+      if (data && Array.isArray(data.categories) && data.categories.length > 0) {
+        // Only overwrite local state if we don't have local changes or server has fresh categories
+        if (!hasLocal) {
+          applyConfig(data);
+        }
         return;
       }
-    } catch (_) {}
+    }
+  } catch (err) {
     console.warn("Using local fallback menu data:", err);
   }
 }

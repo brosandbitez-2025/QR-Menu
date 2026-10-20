@@ -944,6 +944,14 @@ if (exportMenuBtn) {
   });
 }
 
+// Add cache-busting parameter to View Live Menu button
+const previewMenuBtn = document.querySelector("a.preview-menu-btn");
+if (previewMenuBtn) {
+  previewMenuBtn.addEventListener("click", () => {
+    previewMenuBtn.href = "/?t=" + Date.now();
+  });
+}
+
 // ==========================================================
 // MODAL CLOSE LISTENERS & TOAST
 // ==========================================================
