@@ -7,8 +7,12 @@
  * - Social media links & direct contacts
  */
 
-// PIN loaded from server on init; fallback to "1234" until loaded
-let CURRENT_PIN = "1234";
+// PIN loaded from storage or server config; defaults to "2323"
+let CURRENT_PIN = "2323";
+
+function getEffectivePin() {
+  return localStorage.getItem("bros_admin_pin") || CURRENT_PIN || "2323";
+}
 
 // Global App State
 let adminData = {
@@ -119,49 +123,62 @@ function checkAuth() {
   }
 }
 
-// Load the stored admin PIN from server at startup
+// Load the stored admin PIN from localStorage or server/static config at startup
 async function loadAdminPin() {
+  const localPin = localStorage.getItem("bros_admin_pin");
+  if (localPin) {
+    CURRENT_PIN = localPin;
+    return;
+  }
   try {
-    const res = await fetch("/api/pin-verify");
+    const res = await fetch("admin_config.json");
     if (res.ok) {
       const data = await res.json();
-      CURRENT_PIN = data.pin || "1234";
+      if (data && data.adminPin) {
+        CURRENT_PIN = String(data.adminPin);
+      }
     }
   } catch (e) {
-    // silently use fallback
+    CURRENT_PIN = "2323";
   }
 }
 
 submitPinBtn.addEventListener("click", async () => {
   const entered = adminPinInput.value.trim();
-  // Verify PIN against server
+  if (!entered) return;
+
+  let authenticated = false;
+
+  // 1. Try server verification if backend is reachable
   try {
     const res = await fetch("/api/pin-verify", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ pin: entered })
     });
-    const data = await res.json();
-    if (data.valid) {
-      sessionStorage.setItem("bros_admin_auth", "true");
-      pinError.style.display = "none";
-      checkAuth();
-    } else {
-      pinError.style.display = "block";
-      adminPinInput.value = "";
-      adminPinInput.focus();
+    if (res.ok) {
+      const data = await res.json();
+      if (data && typeof data.valid === "boolean") {
+        authenticated = data.valid;
+      }
     }
   } catch (e) {
-    // Fallback: compare against in-memory pin
-    if (entered === CURRENT_PIN) {
-      sessionStorage.setItem("bros_admin_auth", "true");
-      pinError.style.display = "none";
-      checkAuth();
-    } else {
-      pinError.style.display = "block";
-      adminPinInput.value = "";
-      adminPinInput.focus();
-    }
+    // Offline / static hosting fallback
+  }
+
+  // 2. Fallback to client-side PIN check if server wasn't reachable
+  if (!authenticated && entered === getEffectivePin()) {
+    authenticated = true;
+  }
+
+  if (authenticated) {
+    sessionStorage.setItem("bros_admin_auth", "true");
+    pinError.style.display = "none";
+    checkAuth();
+  } else {
+    pinError.style.display = "block";
+    adminPinInput.value = "";
+    adminPinInput.focus();
   }
 });
 
@@ -212,30 +229,74 @@ if (changePinForm) {
       return;
     }
 
+    let serverSuccess = false;
+    let serverError = null;
+
+    // 1. Attempt server-side update first (if node server is running)
     try {
       const res = await fetch("/api/pin", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ currentPin, newPin })
       });
-      const data = await res.json();
-      if (res.ok && data.success) {
-        CURRENT_PIN = newPin;
-        changePinForm.reset();
-        changePinMsg.textContent = "✓ PIN changed successfully! Use your new PIN next time you log in.";
-        changePinMsg.className = "change-pin-msg success";
-        changePinMsg.style.display = "block";
-        showToast("Admin PIN updated successfully!");
+      if (res.ok) {
+        const data = await res.json();
+        if (data.success) {
+          serverSuccess = true;
+        } else {
+          serverError = data.error || "Failed to change PIN.";
+        }
       } else {
-        changePinMsg.textContent = data.error || "Failed to change PIN.";
-        changePinMsg.className = "change-pin-msg error";
-        changePinMsg.style.display = "block";
+        try {
+          const errData = await res.json();
+          if (errData && errData.error) {
+            serverError = errData.error;
+          }
+        } catch (_) {
+          // Response is 404/405/HTML from static server, serverError remains null
+        }
       }
     } catch (err) {
-      changePinMsg.textContent = "Network error. Please try again.";
+      // Network error (server not running or static site)
+    }
+
+    // 2. If server explicitly rejected the change (e.g., incorrect current PIN)
+    if (serverError) {
+      changePinMsg.textContent = serverError;
       changePinMsg.className = "change-pin-msg error";
       changePinMsg.style.display = "block";
+      return;
     }
+
+    // 3. If server was reached and updated successfully
+    if (serverSuccess) {
+      CURRENT_PIN = newPin;
+      localStorage.setItem("bros_admin_pin", newPin);
+      changePinForm.reset();
+      changePinMsg.textContent = "✓ PIN changed successfully! Use your new PIN next time you log in.";
+      changePinMsg.className = "change-pin-msg success";
+      changePinMsg.style.display = "block";
+      showToast("Admin PIN updated successfully!");
+      return;
+    }
+
+    // 4. Fallback for Static / Offline / Live Server modes:
+    const activePin = getEffectivePin();
+    if (currentPin !== activePin) {
+      changePinMsg.textContent = "Current PIN is incorrect.";
+      changePinMsg.className = "change-pin-msg error";
+      changePinMsg.style.display = "block";
+      return;
+    }
+
+    // Current PIN matched, update in localStorage and memory
+    CURRENT_PIN = newPin;
+    localStorage.setItem("bros_admin_pin", newPin);
+    changePinForm.reset();
+    changePinMsg.textContent = "✓ PIN changed successfully! Use your new PIN next time you log in.";
+    changePinMsg.className = "change-pin-msg success";
+    changePinMsg.style.display = "block";
+    showToast("Admin PIN updated successfully!");
   });
 }
 
@@ -1110,7 +1171,10 @@ document.addEventListener("click", (e) => {
 });
 
 // Boot Admin App
-document.addEventListener("DOMContentLoaded", checkAuth);
+document.addEventListener("DOMContentLoaded", async () => {
+  await loadAdminPin();
+  checkAuth();
+});
 
 
 
