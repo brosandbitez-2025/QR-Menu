@@ -333,10 +333,10 @@ function populateAllFields() {
     footerTextInput.value = adminData.brand.footerText || "";
   }
 
-  // 2. Wi-Fi & Contacts
+  // 2. Contacts
   if (adminData.contacts) {
-    wifiSsidInput.value = adminData.contacts.wifiSsid || "";
-    wifiPassInput.value = adminData.contacts.wifiPass || "";
+    if (wifiSsidInput) wifiSsidInput.value = adminData.contacts.wifiSsid || "";
+    if (wifiPassInput) wifiPassInput.value = adminData.contacts.wifiPass || "";
 
     fbUrlInput.value = adminData.contacts.fbUrl || "";
     igUrlInput.value = adminData.contacts.igUrl || "";

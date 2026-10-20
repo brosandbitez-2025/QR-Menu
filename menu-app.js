@@ -62,12 +62,6 @@ const modalItemTitle = document.getElementById("modalItemTitle");
 const modalItemPrice = document.getElementById("modalItemPrice");
 const modalItemDesc = document.getElementById("modalItemDesc");
 
-// Wi-Fi Modal
-const btnShowWifi = document.getElementById("btnShowWifi");
-const wifiModal = document.getElementById("wifiModal");
-const closeWifiModal = document.getElementById("closeWifiModal");
-const copyWifiBtn = document.getElementById("copyWifiBtn");
-const wifiPass = document.getElementById("wifiPass");
 
 // Contact & Brand elements
 const brandMainLogo = document.querySelector(".brand-main-logo");
@@ -145,18 +139,7 @@ function applyConfig(data) {
     if (fbLink && data.contacts.fbUrl) fbLink.href = data.contacts.fbUrl;
     if (igLink && data.contacts.igUrl) igLink.href = data.contacts.igUrl;
     if (btnGoogleReview && data.contacts.googleReviewUrl) btnGoogleReview.href = data.contacts.googleReviewUrl;
-    
-    // Wi-Fi dialog details
-    if (data.contacts.wifiSsid) {
-      const wNameEl = document.querySelector(".wifi-details-card .wifi-row:first-child .w-val");
-      if (wNameEl) wNameEl.textContent = data.contacts.wifiSsid;
-    }
-    if (data.contacts.wifiPass && wifiPass) {
-      wifiPass.textContent = data.contacts.wifiPass;
-    }
   }
-
-  // 3. Categories & Items
   if (data.categories && Array.isArray(data.categories) && data.categories.length > 0) {
     const prevFirstCategory = (MENU_DATA && MENU_DATA.length > 0) ? MENU_DATA[0].id : null;
     MENU_DATA = data.categories;
@@ -338,22 +321,7 @@ function setupEventListeners() {
     if (e.target === itemModal) closeModals();
   });
 
-  btnShowWifi.addEventListener("click", () => {
-    wifiModal.classList.add("active");
-    wifiModal.setAttribute("aria-hidden", "false");
-  });
 
-  closeWifiModal.addEventListener("click", closeModals);
-  wifiModal.addEventListener("click", (e) => {
-    if (e.target === wifiModal) closeModals();
-  });
-
-  copyWifiBtn.addEventListener("click", () => {
-    navigator.clipboard.writeText(wifiPass.textContent).then(() => {
-      copyWifiBtn.textContent = "Copied! ✓";
-      setTimeout(() => copyWifiBtn.textContent = "Copy", 2000);
-    });
-  });
 
   window.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeModals();
