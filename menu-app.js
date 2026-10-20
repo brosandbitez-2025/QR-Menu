@@ -86,8 +86,20 @@ async function initApp() {
   setupLiveSync();
 }
 
-// Fetch dynamic configuration from API with seamless static fallback
+// Fetch dynamic configuration from API with seamless localStorage and static fallback
 async function loadMenuData() {
+  // 1. Check localStorage first (instant local/admin edits)
+  const localSaved = localStorage.getItem("bros_bitez_menu_data");
+  if (localSaved) {
+    try {
+      const parsed = JSON.parse(localSaved);
+      if (parsed && Array.isArray(parsed.categories) && parsed.categories.length > 0) {
+        applyConfig(parsed);
+      }
+    } catch (_) {}
+  }
+
+  // 2. Fetch from server or static fallback
   try {
     let res = await fetch("/api/menu");
     if (!res.ok) {
@@ -426,6 +438,16 @@ function setupLiveSync() {
       renderMenuList();
       updateOpenDetailModalIfAny();
     });
+  });
+
+  // 4. Instant Cross-Tab Storage Sync (updates customer menu when admin saves in another tab)
+  window.addEventListener("storage", (e) => {
+    if (e.key === "bros_bitez_menu_data" && e.newValue) {
+      try {
+        const payload = JSON.parse(e.newValue);
+        onLiveMenuUpdate(payload);
+      } catch (_) {}
+    }
   });
 }
 

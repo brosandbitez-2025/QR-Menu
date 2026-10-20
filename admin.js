@@ -301,9 +301,23 @@ if (changePinForm) {
 }
 
 // ==========================================================
-// DATA LOADING & POPULATION
+// DATA LOADING & POPULATION (LocalStorage + Server Fallback)
 // ==========================================================
 async function loadData() {
+  // 1. Check if user already has saved edits in localStorage
+  const localSaved = localStorage.getItem("bros_bitez_menu_data");
+  if (localSaved) {
+    try {
+      const parsed = JSON.parse(localSaved);
+      if (parsed && Array.isArray(parsed.categories) && parsed.categories.length > 0) {
+        adminData = parsed;
+        populateAllFields();
+        return;
+      }
+    } catch (_) {}
+  }
+
+  // 2. Fallback to server / static file
   try {
     let res = await fetch("/api/menu");
     if (!res.ok) {
@@ -852,35 +866,46 @@ async function syncAdminState(toastMsg = null) {
       fbLabel: "Like us on Facebook",
       igUrl: igUrlInput ? igUrlInput.value.trim() : "",
       igLabel: "Follow us on Instagram",
-      googleReviewUrl: googleReviewUrlInput ? googleReviewUrlInput.value.trim() : "",
-      wifiSsid: wifiSsidInput ? wifiSsidInput.value.trim() : "",
-      wifiPass: wifiPassInput ? wifiPassInput.value.trim() : ""
+      googleReviewUrl: googleReviewUrlInput ? googleReviewUrlInput.value.trim() : ""
     };
   }
 
-  // 1. Instant cross-tab broadcast for same-browser testing
+  // 1. Immediately persist to localStorage
+  try {
+    localStorage.setItem("bros_bitez_menu_data", JSON.stringify(adminData));
+    localStorage.setItem("bros_bitez_menu_updated_at", String(Date.now()));
+  } catch (err) {
+    console.warn("Could not save to localStorage:", err);
+  }
+
+  // 2. Instant cross-tab broadcast for live customer menu sync
   if (adminBroadcastChannel) {
     try {
       adminBroadcastChannel.postMessage({ type: "menu_update", data: adminData });
     } catch (err) {}
   }
 
-  // 2. Persist to server (which broadcasts via SSE to all customer phones & tablets)
+  // 3. Persist to server (local Node server or Vercel serverless function)
+  let savedServer = false;
   try {
     const res = await fetch("/api/menu", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(adminData)
     });
-    const result = await res.json();
-    if (result.success) {
-      if (toastMsg) showToast(toastMsg);
-    } else {
-      if (toastMsg) showToast("Sync warning: " + result.error, true);
+    if (res.ok) {
+      const result = await res.json();
+      if (result && result.success) {
+        savedServer = true;
+      }
     }
   } catch (err) {
-    console.error("Auto-sync error:", err);
+    console.warn("Server save error (saved locally):", err);
   }
+
+  // 4. Always notify user of success
+  const msg = toastMsg || (savedServer ? "✓ Changes saved and live on QR menu!" : "✓ Saved changes locally in your browser!");
+  showToast(msg);
 }
 
 // SAVE ALL CHANGES BUTTON
@@ -901,6 +926,23 @@ saveAllChangesBtn.addEventListener("click", async () => {
     `;
   }
 });
+
+// EXPORT / DOWNLOAD MENU JSON BUTTON
+const exportMenuBtn = document.getElementById("exportMenuBtn");
+if (exportMenuBtn) {
+  exportMenuBtn.addEventListener("click", () => {
+    const blob = new Blob([JSON.stringify(adminData, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "menu_data.json";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    showToast("Downloaded menu_data.json backup!");
+  });
+}
 
 // ==========================================================
 // MODAL CLOSE LISTENERS & TOAST

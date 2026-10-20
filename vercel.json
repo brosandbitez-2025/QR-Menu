@@ -3,7 +3,6 @@
   "framework": null,
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/api/menu", "destination": "/menu_data.json" },
     { "source": "/admin", "destination": "/admin.html" }
   ]
 }
