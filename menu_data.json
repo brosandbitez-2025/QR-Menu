@@ -27,16 +27,7 @@
       "id": "coffee",
       "name": "Our Specials",
       "icon": "🍟",
-      "items": [
-        {
-          "id": "c5",
-          "name": "Cold Brew Sweet Cream",
-          "price": 199,
-          "diet": "veg",
-          "desc": "Slow-steeped for 18 hours, served over ice and layered with velvety vanilla sweet cream foam.",
-          "image": "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?q=80&w=400&auto=format&fit=crop"
-        }
-      ]
+      "items": []
     },
     {
       "id": "drinks",
