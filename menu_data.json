@@ -41,14 +41,6 @@
       "icon": "🫓",
       "items": [
         {
-          "id": "qb2",
-          "name": "Cheesy Loaded Nachos",
-          "price": 189,
-          "diet": "veg",
-          "desc": "Crunchy corn tortilla chips topped with molten cheese sauce, spicy salsa, jalapeños & sour cream.",
-          "image": "https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?q=80&w=400&auto=format&fit=crop"
-        },
-        {
           "id": "qb3",
           "name": "Garlic Butter Herb Toast",
           "price": 149,
