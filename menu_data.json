@@ -29,14 +29,6 @@
       "icon": "🍟",
       "items": [
         {
-          "id": "c2",
-          "name": "Cappuccino",
-          "price": 149,
-          "diet": "veg",
-          "desc": "Balanced espresso poured over velvety steamed whole milk topped with thick creamy microfoam and cocoa dust.",
-          "image": "https://images.unsplash.com/photo-1534778101976-62847782c213?q=80&w=400&auto=format&fit=crop"
-        },
-        {
           "id": "c3",
           "name": "Caramel Macchiato",
           "price": 189,
