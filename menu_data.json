@@ -47,14 +47,6 @@
       "icon": "🍢",
       "items": [
         {
-          "id": "d2",
-          "name": "New York Classic Cheesecake",
-          "price": 229,
-          "diet": "veg",
-          "desc": "Silky baked cream cheese on a buttery graham cracker crust with wild berry compote drizzle.",
-          "image": "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=400&auto=format&fit=crop"
-        },
-        {
           "id": "d3",
           "name": "Sizzling Brownie Sundae",
           "price": 219,
