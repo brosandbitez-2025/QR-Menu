@@ -269,6 +269,12 @@
       "items": []
     },
     {
+      "id": "fried-chicken-8707",
+      "name": "Fried Chicken",
+      "icon": "🍗",
+      "items": []
+    },
+    {
       "id": "chaat-2723",
       "name": "Chaat",
       "icon": "🍛",
@@ -278,12 +284,6 @@
       "id": "waffle-7211",
       "name": "Waffle",
       "icon": "🧇",
-      "items": []
-    },
-    {
-      "id": "fried-chicken-8707",
-      "name": "Fried Chicken",
-      "icon": "🍗",
       "items": []
     },
     {
