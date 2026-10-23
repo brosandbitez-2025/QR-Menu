@@ -41,14 +41,6 @@
       "icon": "🫓",
       "items": [
         {
-          "id": "qb3",
-          "name": "Garlic Butter Herb Toast",
-          "price": 149,
-          "diet": "veg",
-          "desc": "Artisanal crusty baguette infused with freshly chopped parsley, garlic confit, and mozzarella glaze.",
-          "image": "https://images.unsplash.com/photo-1573140247632-f8fd74997d5c?q=80&w=400&auto=format&fit=crop"
-        },
-        {
           "id": "qb4",
           "name": "Crispy Chicken Tenders",
           "price": 229,
