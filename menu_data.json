@@ -33,16 +33,7 @@
       "id": "drinks",
       "name": "Corn",
       "icon": "🌽",
-      "items": [
-        {
-          "id": "dr2",
-          "name": "Sparkling Berry Mojito",
-          "price": 149,
-          "diet": "veg",
-          "desc": "Muddled fresh mint, wild berries, lime wedges, simple syrup topped with effervescent soda.",
-          "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=400&auto=format&fit=crop"
-        }
-      ]
+      "items": []
     },
     {
       "id": "quick-bites",
