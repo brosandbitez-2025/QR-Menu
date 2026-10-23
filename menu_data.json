@@ -14,9 +14,7 @@
     "fbLabel": "Like us on Facebook",
     "igUrl": "https://www.instagram.com/bros_and_bitez?stkn=cjk0ZnZ2OHJzamFv",
     "igLabel": "Follow us on Instagram",
-    "googleReviewUrl": "https://g.page/r/CYEAikToMqyiEAE/review",
-    "wifiSsid": "",
-    "wifiPass": ""
+    "googleReviewUrl": "https://g.page/r/CYEAikToMqyiEAE/review"
   },
   "categories": [
     {
@@ -30,14 +28,6 @@
       "name": "Our Specials",
       "icon": "🍟",
       "items": [
-        {
-          "id": "c1",
-          "name": "Espresso Coffee",
-          "price": 99,
-          "diet": "veg",
-          "desc": "Rich, intense full-bodied double shot extracted from freshly ground dark roast arabica beans.",
-          "image": "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?q=80&w=400&auto=format&fit=crop"
-        },
         {
           "id": "c2",
           "name": "Cappuccino",
