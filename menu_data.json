@@ -221,6 +221,12 @@
       ]
     },
     {
+      "id": "fried-chicken-8707",
+      "name": "Fried Chicken",
+      "icon": "🍗",
+      "items": []
+    },
+    {
       "id": "burgers",
       "name": "Burger",
       "icon": "🍔",
@@ -230,12 +236,6 @@
       "id": "pizzas",
       "name": "Pizza",
       "icon": "🍕",
-      "items": []
-    },
-    {
-      "id": "fried-chicken-8707",
-      "name": "Fried Chicken",
-      "icon": "🍗",
       "items": []
     },
     {
