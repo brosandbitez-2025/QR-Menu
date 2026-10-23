@@ -53,14 +53,6 @@
       "icon": "🍔",
       "items": [
         {
-          "id": "b2",
-          "name": "Crispy Crunch Chicken Burger",
-          "price": 229,
-          "diet": "nonveg",
-          "desc": "Spiced buttermilk fried chicken thigh, spicy chipotle slaw, dill pickles on toasted brioche bun.",
-          "image": "https://images.unsplash.com/photo-1625813506062-0aeb1d7a094b?q=80&w=400&auto=format&fit=crop"
-        },
-        {
           "id": "b3",
           "name": "Smoky BBQ Paneer Burger",
           "price": 199,
