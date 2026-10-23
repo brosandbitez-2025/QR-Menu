@@ -41,14 +41,6 @@
       "icon": "🫓",
       "items": [
         {
-          "id": "qb1",
-          "name": "Crispy Golden Fries",
-          "price": 129,
-          "diet": "veg",
-          "desc": "Skin-on premium potatoes tossed in sea salt, served with Bros signature garlic mayo dip.",
-          "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?q=80&w=400&auto=format&fit=crop"
-        },
-        {
           "id": "qb2",
           "name": "Cheesy Loaded Nachos",
           "price": 189,
