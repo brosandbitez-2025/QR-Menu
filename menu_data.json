@@ -299,6 +299,12 @@
       "items": []
     },
     {
+      "id": "fried-chicken-8707",
+      "name": "Fried Chicken",
+      "icon": "🍗",
+      "items": []
+    },
+    {
       "id": "milkshake-5099",
       "name": "Milkshake",
       "icon": "🥤",
@@ -308,12 +314,6 @@
       "id": "ice-cream-2116",
       "name": "Ice Cream",
       "icon": "🧁",
-      "items": []
-    },
-    {
-      "id": "fried-chicken-8707",
-      "name": "Fried Chicken",
-      "icon": "🍗",
       "items": []
     },
     {
