@@ -47,14 +47,6 @@
       "icon": "🍢",
       "items": [
         {
-          "id": "d1",
-          "name": "Belgian Molten Choco Lava",
-          "price": 199,
-          "diet": "veg",
-          "desc": "Warm baked dark chocolate sponge with an oozing liquid ganache core, dusted with powdered sugar.",
-          "image": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=400&auto=format&fit=crop"
-        },
-        {
           "id": "d2",
           "name": "New York Classic Cheesecake",
           "price": 229,
