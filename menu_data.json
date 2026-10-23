@@ -59,14 +59,6 @@
       "icon": "🍕",
       "items": [
         {
-          "id": "p2",
-          "name": "Farmhouse Supreme",
-          "price": 349,
-          "diet": "veg",
-          "desc": "Loaded with button mushrooms, charred bell peppers, sweet corn, black olives & fresh mozzarella.",
-          "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=400&auto=format&fit=crop"
-        },
-        {
           "id": "p3",
           "name": "Smoked Pepperoni & Chicken",
           "price": 399,
