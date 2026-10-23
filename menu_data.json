@@ -51,16 +51,7 @@
       "id": "burgers",
       "name": "Burger",
       "icon": "🍔",
-      "items": [
-        {
-          "id": "b3",
-          "name": "Smoky BBQ Paneer Burger",
-          "price": 199,
-          "diet": "veg",
-          "desc": "Grilled marinated cottage cheese patty, bell pepper relish, molten gouda, and smoky barbecue aioli.",
-          "image": "https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=400&auto=format&fit=crop"
-        }
-      ]
+      "items": []
     },
     {
       "id": "pizzas",
