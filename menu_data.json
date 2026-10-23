@@ -233,6 +233,12 @@
       "items": []
     },
     {
+      "id": "fried-chicken-8707",
+      "name": "Fried Chicken",
+      "icon": "🍗",
+      "items": []
+    },
+    {
       "id": "sandwich-5283",
       "name": "Sandwich",
       "icon": "🥪",
@@ -242,12 +248,6 @@
       "id": "shawarma-1667",
       "name": "Shawarma",
       "icon": "🌯",
-      "items": []
-    },
-    {
-      "id": "fried-chicken-8707",
-      "name": "Fried Chicken",
-      "icon": "🍗",
       "items": []
     },
     {
