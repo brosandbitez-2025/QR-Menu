@@ -119,6 +119,12 @@
       ]
     },
     {
+      "id": "fried-chicken-8707",
+      "name": "Fried Chicken",
+      "icon": "🍗",
+      "items": []
+    },
+    {
       "id": "quick-bites",
       "name": "Cutlet",
       "icon": "🫓",
@@ -140,12 +146,6 @@
           "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=400&auto=format&fit=crop"
         }
       ]
-    },
-    {
-      "id": "fried-chicken-8707",
-      "name": "Fried Chicken",
-      "icon": "🍗",
-      "items": []
     },
     {
       "id": "desserts",
