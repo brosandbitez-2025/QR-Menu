@@ -357,7 +357,16 @@
       "id": "sandwich-5283",
       "name": "Sandwich",
       "icon": "🥪",
-      "items": []
+      "items": [
+        {
+          "id": "dish-1792757572286",
+          "name": "Veg Sandwich",
+          "price": 69,
+          "diet": "veg",
+          "desc": "",
+          "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=400&auto=format&fit=crop"
+        }
+      ]
     },
     {
       "id": "shawarma-1667",
