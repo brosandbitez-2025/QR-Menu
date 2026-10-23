@@ -281,15 +281,15 @@
       "items": []
     },
     {
-      "id": "brownie-5475",
-      "name": "Brownie",
-      "icon": "🍩",
-      "items": []
-    },
-    {
       "id": "fried-chicken-8707",
       "name": "Fried Chicken",
       "icon": "🍗",
+      "items": []
+    },
+    {
+      "id": "brownie-5475",
+      "name": "Brownie",
+      "icon": "🍩",
       "items": []
     },
     {
