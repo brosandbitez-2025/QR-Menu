@@ -29,14 +29,6 @@
       "icon": "🍟",
       "items": [
         {
-          "id": "c3",
-          "name": "Caramel Macchiato",
-          "price": 189,
-          "diet": "veg",
-          "desc": "Freshly steamed milk with vanilla-flavored syrup marked with espresso and topped with caramel drizzle.",
-          "image": "https://images.unsplash.com/photo-1485808191679-5f86510681a2?q=80&w=400&auto=format&fit=crop"
-        },
-        {
           "id": "c4",
           "name": "Hazelnut Cafe Latte",
           "price": 179,
