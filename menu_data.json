@@ -251,6 +251,12 @@
       "items": []
     },
     {
+      "id": "fried-chicken-8707",
+      "name": "Fried Chicken",
+      "icon": "🍗",
+      "items": []
+    },
+    {
       "id": "noodles-0611",
       "name": "Noodles",
       "icon": "🍜",
@@ -260,12 +266,6 @@
       "id": "bread-omelette-6629",
       "name": "Bread Omelette",
       "icon": "🥪",
-      "items": []
-    },
-    {
-      "id": "fried-chicken-8707",
-      "name": "Fried Chicken",
-      "icon": "🍗",
       "items": []
     },
     {
