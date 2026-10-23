@@ -245,15 +245,15 @@
       "items": []
     },
     {
-      "id": "fried-rice-2566",
-      "name": "Fried Rice",
-      "icon": "🥘",
-      "items": []
-    },
-    {
       "id": "fried-chicken-8707",
       "name": "Fried Chicken",
       "icon": "🍗",
+      "items": []
+    },
+    {
+      "id": "fried-rice-2566",
+      "name": "Fried Rice",
+      "icon": "🥘",
       "items": []
     },
     {
