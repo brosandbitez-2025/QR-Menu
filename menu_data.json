@@ -421,6 +421,14 @@
           "diet": "veg",
           "desc": "",
           "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "dish-1792757671018",
+          "name": "Egg Sandwich",
+          "price": 79,
+          "diet": "nonveg",
+          "desc": "",
+          "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=400&auto=format&fit=crop"
         }
       ]
     },
