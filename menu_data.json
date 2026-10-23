@@ -57,16 +57,7 @@
       "id": "pizzas",
       "name": "Pizza",
       "icon": "🍕",
-      "items": [
-        {
-          "id": "p3",
-          "name": "Smoked Pepperoni & Chicken",
-          "price": 399,
-          "diet": "nonveg",
-          "desc": "Rustic crust topped with spicy pepperoni, shredded chicken barbecue, chili flakes, and hot honey.",
-          "image": "https://images.unsplash.com/photo-1628840042765-356cda07504e?q=80&w=400&auto=format&fit=crop"
-        }
-      ]
+      "items": []
     },
     {
       "id": "sandwich-5283",
