@@ -263,15 +263,15 @@
       "items": []
     },
     {
-      "id": "momos-1771",
-      "name": "Momos",
-      "icon": "🥟",
-      "items": []
-    },
-    {
       "id": "fried-chicken-8707",
       "name": "Fried Chicken",
       "icon": "🍗",
+      "items": []
+    },
+    {
+      "id": "momos-1771",
+      "name": "Momos",
+      "icon": "🥟",
       "items": []
     },
     {
