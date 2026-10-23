@@ -311,15 +311,15 @@
       "items": []
     },
     {
-      "id": "milk-specials-6787",
-      "name": "Milk Specials",
-      "icon": "☕",
-      "items": []
-    },
-    {
       "id": "fried-chicken-8707",
       "name": "Fried Chicken",
       "icon": "🍗",
+      "items": []
+    },
+    {
+      "id": "milk-specials-6787",
+      "name": "Milk Specials",
+      "icon": "☕",
       "items": []
     }
   ]
