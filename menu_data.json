@@ -39,16 +39,7 @@
       "id": "quick-bites",
       "name": "Cutlet",
       "icon": "🫓",
-      "items": [
-        {
-          "id": "qb4",
-          "name": "Crispy Chicken Tenders",
-          "price": 229,
-          "diet": "nonveg",
-          "desc": "Herb-marinated chicken breast tenders crumbed and fried golden crisp with honey mustard sauce.",
-          "image": "https://images.unsplash.com/photo-1562967914-608f82629710?q=80&w=400&auto=format&fit=crop"
-        }
-      ]
+      "items": []
     },
     {
       "id": "desserts",
