@@ -35,14 +35,6 @@
       "icon": "🌽",
       "items": [
         {
-          "id": "dr1",
-          "name": "Oreo Mudslide Thickshake",
-          "price": 179,
-          "diet": "veg",
-          "desc": "Creamy vanilla ice cream blended with crushed Oreos, dark chocolate syrup, and whipped cream crown.",
-          "image": "https://images.unsplash.com/photo-1572490122747-3968b75cc699?q=80&w=400&auto=format&fit=crop"
-        },
-        {
           "id": "dr2",
           "name": "Sparkling Berry Mojito",
           "price": 149,
