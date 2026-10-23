@@ -287,6 +287,12 @@
       "items": []
     },
     {
+      "id": "fried-chicken-8707",
+      "name": "Fried Chicken",
+      "icon": "🍗",
+      "items": []
+    },
+    {
       "id": "mojito-9035",
       "name": "Mojito",
       "icon": "🍹",
@@ -296,12 +302,6 @@
       "id": "lassi-8690",
       "name": "Lassi",
       "icon": "🍶",
-      "items": []
-    },
-    {
-      "id": "fried-chicken-8707",
-      "name": "Fried Chicken",
-      "icon": "🍗",
       "items": []
     },
     {
