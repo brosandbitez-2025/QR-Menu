@@ -29,14 +29,6 @@
       "icon": "🍟",
       "items": [
         {
-          "id": "c4",
-          "name": "Hazelnut Cafe Latte",
-          "price": 179,
-          "diet": "veg",
-          "desc": "Smooth espresso blended with roasted hazelnut syrup and silky textured milk with artful pour.",
-          "image": "https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?q=80&w=400&auto=format&fit=crop"
-        },
-        {
           "id": "c5",
           "name": "Cold Brew Sweet Cream",
           "price": 199,
