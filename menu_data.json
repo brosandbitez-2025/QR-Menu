@@ -659,6 +659,14 @@
           "diet": "veg",
           "desc": "",
           "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "dish-1792930398511",
+          "name": "Paneer Fried Rice",
+          "price": 119,
+          "diet": "veg",
+          "desc": "",
+          "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=400&auto=format&fit=crop"
         }
       ]
     },
