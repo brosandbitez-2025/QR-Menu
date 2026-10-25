@@ -701,17 +701,17 @@
           "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=400&auto=format&fit=crop"
         },
         {
-          "id": "dish-1792930481826",
-          "name": "Chicken Fried Rice",
-          "price": 119,
+          "id": "dish-1792930454863",
+          "name": "Egg Fried Rice",
+          "price": 109,
           "diet": "nonveg",
           "desc": "",
           "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=400&auto=format&fit=crop"
         },
         {
-          "id": "dish-1792930454863",
-          "name": "Egg Fried Rice",
-          "price": 109,
+          "id": "dish-1792930481826",
+          "name": "Chicken Fried Rice",
+          "price": 119,
           "diet": "nonveg",
           "desc": "",
           "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=400&auto=format&fit=crop"
