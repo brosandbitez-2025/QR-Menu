@@ -611,7 +611,16 @@
       "id": "fried-rice-2566",
       "name": "Fried Rice",
       "icon": "🥘",
-      "items": []
+      "items": [
+        {
+          "id": "dish-1792930286956",
+          "name": "Veg Fried Rice",
+          "price": 99,
+          "diet": "veg",
+          "desc": "",
+          "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=400&auto=format&fit=crop"
+        }
+      ]
     },
     {
       "id": "noodles-0611",
