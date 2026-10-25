@@ -888,7 +888,16 @@
       "id": "momos-1771",
       "name": "Momos",
       "icon": "🥟",
-      "items": []
+      "items": [
+        {
+          "id": "dish-1792931002874",
+          "name": "Mixed Veg Momos",
+          "price": 99,
+          "diet": "veg",
+          "desc": "",
+          "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=400&auto=format&fit=crop"
+        }
+      ]
     },
     {
       "id": "chaat-2723",
