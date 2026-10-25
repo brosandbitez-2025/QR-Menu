@@ -740,14 +740,6 @@
           "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=400&auto=format&fit=crop"
         },
         {
-          "id": "dish-1792930624149",
-          "name": "Veg Schezwan Noodles",
-          "price": 109,
-          "diet": "veg",
-          "desc": "",
-          "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=400&auto=format&fit=crop"
-        },
-        {
           "id": "dish-1792930635807",
           "name": "Mushroom Noodles",
           "price": 109,
@@ -759,6 +751,14 @@
           "id": "dish-1792930669805",
           "name": "Mushroom Schezwan / Peri Peri Noodles",
           "price": 119,
+          "diet": "veg",
+          "desc": "",
+          "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "dish-1792930624149",
+          "name": "Veg Schezwan / Peri Peri Noodles",
+          "price": 109,
           "diet": "veg",
           "desc": "",
           "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=400&auto=format&fit=crop"
