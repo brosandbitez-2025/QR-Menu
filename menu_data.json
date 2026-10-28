@@ -23,14 +23,6 @@
       "icon": "🍟",
       "items": [
         {
-          "id": "dish-1792753084379",
-          "name": "Peri Peri Fries",
-          "price": 65,
-          "diet": "veg",
-          "desc": "",
-          "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=400&auto=format&fit=crop"
-        },
-        {
           "id": "dish-1792753051617",
           "name": "Salted Fries",
           "price": 55,
@@ -41,6 +33,14 @@
         {
           "id": "dish-1792753071495",
           "name": "Masala Fries",
+          "price": 65,
+          "diet": "veg",
+          "desc": "",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM9k9RBSAKpneNuOfVZ-0fZVejCfOkbwQ3ssLTjes_2xLKM3JGwQbtXlUG&s=10"
+        },
+        {
+          "id": "dish-1792753084379",
+          "name": "Peri Peri Fries",
           "price": 65,
           "diet": "veg",
           "desc": "",
