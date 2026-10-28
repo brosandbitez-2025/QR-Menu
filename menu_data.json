@@ -31,16 +31,16 @@
           "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM9k9RBSAKpneNuOfVZ-0fZVejCfOkbwQ3ssLTjes_2xLKM3JGwQbtXlUG&s=10"
         },
         {
-          "id": "dish-1792753084379",
-          "name": "Peri Peri Fries",
+          "id": "dish-1792753071495",
+          "name": "Masala Fries",
           "price": 65,
           "diet": "veg",
           "desc": "",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM9k9RBSAKpneNuOfVZ-0fZVejCfOkbwQ3ssLTjes_2xLKM3JGwQbtXlUG&s=10"
+          "image": "https://thumbs.dreamstime.com/b/fries-french-tomato-sauce-sweet-potato-finger-chips-golden-fried-potatoes-junk-food-snack-kraft-paper-closeup-333200567.jpg"
         },
         {
-          "id": "dish-1792753071495",
-          "name": "Masala Fries",
+          "id": "dish-1792753084379",
+          "name": "Peri Peri Fries",
           "price": 65,
           "diet": "veg",
           "desc": "",
