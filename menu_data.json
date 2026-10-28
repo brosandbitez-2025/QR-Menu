@@ -54,14 +54,6 @@
       "icon": "🍟",
       "items": [
         {
-          "id": "dish-1792753104188",
-          "name": "Loaded Fries",
-          "price": 99,
-          "diet": "veg",
-          "desc": "",
-          "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=400&auto=format&fit=crop"
-        },
-        {
           "id": "dish-1792753402476",
           "name": "Chicken Loaded Fries",
           "price": 139,
@@ -76,6 +68,14 @@
           "diet": "veg",
           "desc": "",
           "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          "id": "dish-1792753104188",
+          "name": "Loaded Fries",
+          "price": 99,
+          "diet": "veg",
+          "desc": "",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmEG-IURx7VPahQzWrd9Micn8rJW_cRWoANrfdoYAuDvKYcTjs3R7G9VK5&s=10"
         }
       ]
     },
